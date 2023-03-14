@@ -1,7 +1,9 @@
+//  middleware/auth.js
 const jwt = require('jsonwebtoken');
+const {login} = require("../controllers/user");
 
 module.exports = (req, res, next) => {
-    console.log(req.body);
+    //console.log(req.body);
     try {
         const token = req.headers.authorization.split(' ')[1];
         const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
